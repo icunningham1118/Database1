@@ -11,7 +11,7 @@ int main() {
 	float price = 0.0;
 	std::string name, container, brand, mfgr, comment, type;
 	std::string line, tline;
-	Data d[2];
+	Data d;
 
 
 	int i = 0;
@@ -19,7 +19,7 @@ int main() {
 
 
 		std::stringstream ss(line);
-
+		//hi
 		std::getline(ss, tline, delim);
 		d[i].key = std::stoi(tline);
 
