@@ -130,14 +130,12 @@
     <ClCompile Include="data.h" />
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Table.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\json.hpp" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Table.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

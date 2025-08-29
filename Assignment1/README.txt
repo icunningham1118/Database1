@@ -1,1 +1,1 @@
-C++ Standard 20
+C++ Standard 17
