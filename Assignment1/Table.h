@@ -7,12 +7,13 @@
 class Table
 {
 public:
-	bool addItem(Item*);
+	bool addItem(int);
 	bool deleteItem(int);
 	bool getItem(int);
 private:
+	void hash(int);
 	bool keyExists(int);
-	std::unordered_map<int, Item> idTable;
+	std::unordered_map<int, int> idTable;
 };
 
 #endif //TABLE_H
