@@ -11,5 +11,8 @@
 #include "functions.h"
 #include "data.h"
 #include "json.hpp"
+using json = nlohmann::json;
+
+#define LOGNAME "log.txt"
 
 #endif /*MAIN_H*/
