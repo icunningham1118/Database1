@@ -18,5 +18,6 @@ bool serializeData(std::vector<dj::Data>&);
 bool buildDatabase();
 void writeLog();
 bool readLog();
-
+std::string getRandomStr();
+float getRandomFloat();
 #endif /*FUNCTIONS_H*/

@@ -79,3 +79,31 @@ bool readLog() {
 	return i;
 }
 
+std::string getRandomStr() {
+	/*********************************************
+		Generates a random string of lowercase alphabetical characters.
+
+		@param None.
+
+		@return randomString : A randomly generated string.
+
+		@note Generates a string of random length between 5 and 10 characters.
+				Each character in the string is a random lowercase alphabetical character.
+
+		@exception None.
+	*********************************************/
+	int length = rand() % 6 + 5; // Random number between 5 and 10
+
+	// Generate the random string
+	std::string randomString;
+	for (int i = 0; i < length; ++i) {
+		char randomChar = 'a' + rand() % 26; // Random lowercase alphabetical character
+		randomString += randomChar;
+	}
+
+	return randomString;
+}
+
+float getRandomFloat() {
+	return (static_cast <float>(rand()) / (static_cast <float>(RAND_MAX / 50)));
+}
