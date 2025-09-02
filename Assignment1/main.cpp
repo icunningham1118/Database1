@@ -147,9 +147,31 @@ int main() {
 		}
 	}
 
+	for (int i = 0; i < elementsInJ; i++) {
+		if (j[i]["key"] == tData.key) {
+			std::cout << "JSON Part: " << j[i] << " before deletion.\n";
+			j.erase(i);
+			elementsInJ--;
+			std::cout << "Checking for deletion...\n";
+			bool foundIt = false;
+			for (size_t i = 0; i < elementsInJ; i++) {
+				if (j[i]["key"] == tData.key) {
+					tData = j[i].template get<dj::Data>();
+					i = elementsInJ;
+					foundIt = true;
+				}
+			}
+			if (foundIt) {
+				std::cout << "Deletion failed." << std::endl;
+			}
+			else {
+				std::cout << "Successfully deleted" << std::endl;
+			}
+		}
+	}
 	// -->Add [DONE]
 	// -->Update part [DONE]
-	// -->Delete part
+	// -->Delete part [DONE]
 		
 	
 
