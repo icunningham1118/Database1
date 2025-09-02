@@ -1,8 +1,22 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <iostream>
+#define LOG "log.txt"
+#define PARTTABLE "part.tbl"
+#define DATABASE "database.json"
 
-bool parseTable();
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <string>
+#include "json.hpp"
+#include "data.h"
+using json = nlohmann::json;
+bool parseTable(std::vector<dj::Data>&);
+bool serializeData(std::vector<dj::Data>&);
+bool buildDatabase();
+void writeLog();
+bool readLog();
 
 #endif /*FUNCTIONS_H*/
