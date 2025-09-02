@@ -8,13 +8,15 @@
 using json = nlohmann::json;
 namespace dj {
 	struct Data {
+		Data();
+		Data(int, std::string, std::string, std::string, std::string, int, std::string, float, std::string);
 		int key = 0, size = 0;
 		float price = 0.0;
 		std::string name, container, brand, mfgr, comment, type;
 		NLOHMANN_DEFINE_TYPE_INTRUSIVE(Data, key, name, mfgr, brand, type, size, container, price, comment);
 	};
+	bool operator==(const Data&, const Data&);
+	bool operator!=(const Data&, const Data&);
 
-	//void to_json(json&, Data&);
-	//void from_json(const json&, Data&);
 } //namespace dj
 #endif //DATA_H
