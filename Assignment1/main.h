@@ -5,10 +5,14 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <vector>
+#include <random>
+
 #include "item.h"
 #include "functions.h"
 #include "data.h"
 #include "json.hpp"
+
 using json = nlohmann::json;
 
 #define LOGNAME "log.txt"
