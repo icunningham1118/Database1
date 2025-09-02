@@ -13,6 +13,7 @@
 !Assignment1.vcxproj.filters
 !part.tbl
 !*.cpp
+!data.cpp
 !*.h
 !README.md
 /Assignment1/log.txt
