@@ -16,6 +16,7 @@ using json = nlohmann::json;
 bool parseTable(std::vector<dj::Data>&);
 bool serializeData(std::vector<dj::Data>&);
 bool buildDatabase();
+void logCheck();
 void writeLog();
 bool readLog();
 std::string getRandomStr();

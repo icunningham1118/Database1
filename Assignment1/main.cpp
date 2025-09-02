@@ -10,14 +10,7 @@ of the file.
 
 int main() {
 	srand(time(NULL));
-	if (!std::filesystem::exists(LOGNAME)) {
-		//Log file is created if program is run for the first time. 
-		//LOGNAME = "log.txt"
-		//NOTE:: Unable to get this section to compile in any other place besides Visual Studio. Might need to be removed.
-		std::ofstream logCreate{ LOGNAME };
-		logCreate << 0;
-		logCreate.close();
-	}
+	logCheck();
 	//Log file is opened and checked.
 	/*********************
 	* 0 in log.txt means database needs to be built
@@ -138,16 +131,18 @@ int main() {
 		int found = 0;
 		int added = 0;
 		for (int i = 0; i < std::size(testValues); i++) {
-			for (int q = 0; q < elementsInJ + found; q++) {
+			for (int q = 0; q < elementsInJ; q++) {
 				if (testValues[i] == j[q].template get<dj::Data>()) {
 					q = elementsInJ;
 					found++;
+					std::cout << "Part add abort. New part needs unique name and key" << std::endl;
 				}
 				else if (j[q] == j.back() && testValues[i] != j[q].template get<dj::Data>()) {
 					j.push_back(testValues[i]);
 					elementsInJ++;
 					q = elementsInJ;
 					added++;
+					std::cout << "Part added" << std::endl;
 				}
 			}
 		}

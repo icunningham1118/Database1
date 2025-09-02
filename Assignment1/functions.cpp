@@ -67,6 +67,13 @@ bool serializeData(std::vector<dj::Data>& d) {
 	return true;
 }
 
+void logCheck() {
+	std::ifstream log(LOG);
+	if (!log.is_open()) {
+		std::ofstream log(LOG);
+		log << 0;
+	}
+}
 void writeLog() {
 	std::ofstream log(LOG);
 	log << 1;
