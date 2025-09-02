@@ -114,3 +114,17 @@ std::string getRandomStr() {
 float getRandomFloat() {
 	return (static_cast <float>(rand()) / (static_cast <float>(RAND_MAX / 50)));
 }
+
+dj::Data fillTestData(int elementsInJ,int max) {
+	dj::Data tData;
+	tData.key = elementsInJ + (rand() % (max - elementsInJ + 1));
+	tData.name = getRandomStr();
+	tData.mfgr = getRandomStr();
+	tData.brand = getRandomStr();
+	tData.type = getRandomStr();
+	tData.size = elementsInJ + (rand() % (max - elementsInJ + 1));
+	tData.container = getRandomStr();
+	tData.price = getRandomFloat();
+	tData.comment = getRandomStr();
+	return tData;
+}

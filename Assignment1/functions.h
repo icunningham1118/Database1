@@ -21,4 +21,5 @@ void writeLog();
 bool readLog();
 std::string getRandomStr();
 float getRandomFloat();
+dj::Data fillTestData(int,int);
 #endif /*FUNCTIONS_H*/
