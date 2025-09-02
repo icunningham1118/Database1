@@ -40,7 +40,6 @@
     <None Include="part.tbl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt" />

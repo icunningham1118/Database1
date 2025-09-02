@@ -137,7 +137,6 @@
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
     <None Include="part.tbl" />
   </ItemGroup>
   <ItemGroup>
