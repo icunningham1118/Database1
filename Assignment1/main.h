@@ -8,7 +8,6 @@
 #include <vector>
 #include <random>
 
-#include "item.h"
 #include "functions.h"
 #include "data.h"
 #include "json.hpp"
@@ -16,5 +15,7 @@
 using json = nlohmann::json;
 
 #define LOGNAME "log.txt"
+#define MAX 30000
+
 
 #endif /*MAIN_H*/
