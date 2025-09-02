@@ -147,8 +147,6 @@ int main() {
 		}
 	}
 
-	for
-
 	// -->Add [DONE]
 	// -->Update part [DONE]
 	// -->Delete part
