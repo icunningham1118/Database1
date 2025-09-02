@@ -129,18 +129,16 @@
   <ItemGroup>
     <ClCompile Include="data.h" />
     <ClCompile Include="functions.cpp" />
-    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="functions.h" />
-    <ClInclude Include="Item.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="part.tbl" />
-    <None Include="test.tbl" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt" />
