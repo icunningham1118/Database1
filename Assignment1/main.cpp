@@ -20,9 +20,7 @@ int main() {
 		std::cout << "First time user, building database..." << std::endl;
 
 		//Builds database
-		if (buildDatabase()) {
-			std::cout << "Database has been built!" << std::endl;
-		}
+		std::cout << "Database has been built!" << std::endl;
 
 		//Updates log to 1
 		writeLog();

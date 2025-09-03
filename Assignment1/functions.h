@@ -10,16 +10,23 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <cstdio>
 #include "json.hpp"
 #include "data.h"
 using json = nlohmann::json;
-bool parseTable(std::vector<dj::Data>&);
-bool serializeData(std::vector<dj::Data>&);
-bool buildDatabase();
+void parseTable(std::vector<dj::Data>&);
+void serializeData(std::vector<dj::Data>&);
+void initialBuildDatabase();
 void logCheck();
 void writeLog();
 bool readLog();
 std::string getRandomStr();
 float getRandomFloat();
 dj::Data fillTestData(int,int);
+void testSuite();
+void testSearchKey();
+void testSearchName();
+void testSearchType();
+void testSearchBrand();
+
 #endif /*FUNCTIONS_H*/
