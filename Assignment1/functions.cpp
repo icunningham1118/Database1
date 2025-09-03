@@ -170,6 +170,36 @@ std::vector<dj::Data> loadDatabase() {
 	}
 	return dataVec;
 }
+int getMenuChoice() {
+	int choice;
+	bool choiceMade = false;
+	while (!choiceMade) {
+		std::cout << "\n=== Parts Manager ===\n";
+		std::cout << "1. Insert new part\n";
+		std::cout << "2. Search parts\n";
+		std::cout << "3. Update part\n";
+		std::cout << "4. Delete part\n";
+		std::cout << "5. Automated testing\n";
+		std::cout << "6. Exit\nChoice: ";
+		// Get user input
+		if (std::cin >> choice) {
+			if (choice >= 1 && choice <= 6) {
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				choiceMade = true;
+				return choice;
+			}
+			else {
+				std::cout << "Invalid option. Please enter a number between 1&6.\n";
+			}
+		}
+		else {
+			std::cout << "Invalid input. Please enter a number.\n";
+			std::cin.clear(); // reset error state
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard bad input
+		}
+	}
+}
+
 void insertPart(std::vector<dj::Data>& dataVec) {
 	dj::Data p;
 	std::cout << "Enter PARTKEY: ";

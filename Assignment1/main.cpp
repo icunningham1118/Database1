@@ -41,15 +41,7 @@ int main() {
 		// Menu loop
 		int choice;
 		do {
-			std::cout << "\n=== Parts Manager ===\n";
-			std::cout << "1. Insert new part\n";
-			std::cout << "2. Search parts\n";
-			std::cout << "3. Update part\n";
-			std::cout << "4. Delete part\n";
-			std::cout << "5. Automated testing\n";
-			std::cout << "6. Exit\nChoice: ";
-			std::cin >> choice;
-			std::cin.ignore();
+			choice = getMenuChoice();
 
 			switch (choice) {
 			case 1: insertPart(dataVec); break;

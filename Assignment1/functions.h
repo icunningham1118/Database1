@@ -27,7 +27,7 @@ bool readLog();
 std::vector<dj::Data> loadDatabase();
 void saveDatabase(std::vector<dj::Data>&);
 
-
+int getMenuChoice();
 void insertPart(std::vector<dj::Data>&);
 void searchParts(std::vector<dj::Data>&);
 void updatePart(std::vector<dj::Data>&);
