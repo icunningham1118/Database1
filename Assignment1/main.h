@@ -15,7 +15,6 @@
 using json = nlohmann::json;
 
 #define LOGNAME "log.txt"
-#define MAX 30000
 
 
 #endif /*MAIN_H*/
