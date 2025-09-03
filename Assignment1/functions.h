@@ -17,11 +17,11 @@
 #include "data.h"
 using json = nlohmann::json;
 
-void parseTable(std::vector<dj::Data>&);
-void serializeData(std::vector<dj::Data>&);
-void initialBuildDatabase();
+bool parseTable(std::vector<dj::Data>&);
+bool serializeData(std::vector<dj::Data>&);
+bool initialBuildDatabase();
 void logCheck();
-void writeLog();
+void writeLog(int);
 bool readLog();
 
 std::vector<dj::Data> loadDatabase();

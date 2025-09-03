@@ -17,43 +17,53 @@ int main() {
 	* 1 in log.txt means database should be present
 	**********************/
 	if (!readLog()) {
+		int i = 0;
 		std::cout << "First time user, building database..." << std::endl;
 
 		//Builds database
-		initialBuildDatabase();
-		std::cout << "Database has been built!" << std::endl;
+		if (initialBuildDatabase()) {
+			std::cout << "Database has been built!" << std::endl;
+			i = 1;
+		}
+		else {
+			std::cout << "Database failed to build. Ensure you have included \"part.tbl\" file with your install." << std::endl;
+		}
 
 		//Updates log to 1
-		writeLog();
+		writeLog(i);
 	}
 	else {
 		//Launching program after 1st build will display this message
 		std::cout << "Welcome back!" << std::endl;
 	}
-	std::vector<dj::Data> dataVec = loadDatabase();
-	// Menu loop
-	int choice;
-	do {
-		std::cout << "\n=== Parts Manager ===\n";
-		std::cout << "1. Insert new part\n";
-		std::cout << "2. Search parts\n";
-		std::cout << "3. Update part\n";
-		std::cout << "4. Delete part\n";
-		std::cout << "5. Automated testing\n";
-		std::cout << "6. Exit\nChoice: ";
-		std::cin >> choice;
-		std::cin.ignore();
+	if (readLog()) {
+		std::vector<dj::Data> dataVec = loadDatabase();
+		// Menu loop
+		int choice;
+		do {
+			std::cout << "\n=== Parts Manager ===\n";
+			std::cout << "1. Insert new part\n";
+			std::cout << "2. Search parts\n";
+			std::cout << "3. Update part\n";
+			std::cout << "4. Delete part\n";
+			std::cout << "5. Automated testing\n";
+			std::cout << "6. Exit\nChoice: ";
+			std::cin >> choice;
+			std::cin.ignore();
 
-		switch (choice) {
-		case 1: insertPart(dataVec); break;
-		case 2: searchParts(dataVec); break;
-		case 3: updatePart(dataVec); break;
-		case 4: deletePart(dataVec); break;
-		case 5: testSuite(); break;
-		case 6: saveDatabase(dataVec); std::cout << "Exiting...\n"; break;
-		default: std::cout << "Invalid choice.\n";
-		}
-	} while (choice != 6);
-
+			switch (choice) {
+			case 1: insertPart(dataVec); break;
+			case 2: searchParts(dataVec); break;
+			case 3: updatePart(dataVec); break;
+			case 4: deletePart(dataVec); break;
+			case 5: testSuite(); break;
+			case 6: saveDatabase(dataVec); std::cout << "Exiting...\n"; break;
+			default: std::cout << "Invalid choice.\n";
+			}
+		} while (choice != 6);
+	}
+	else {
+		std::cout << "Exiting...\n";
+	}
 	return 0;
 }

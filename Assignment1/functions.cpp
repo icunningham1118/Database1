@@ -1,5 +1,5 @@
 #include "functions.h"
-void initialBuildDatabase() {
+bool initialBuildDatabase() {
 	/*********************************************
 		@Builds the database
 
@@ -13,12 +13,16 @@ void initialBuildDatabase() {
 
 		@exception None.
 	*********************************************/
+	bool built = false;
 	std::vector<dj::Data> vData;
-	parseTable(vData);
-	saveDatabase(vData);
+	if (parseTable(vData)) {
+		saveDatabase(vData);
+		built = true;
+	}
 	vData.clear();
+	return built;
 }
-void parseTable(std::vector<dj::Data> &vData) {
+bool parseTable(std::vector<dj::Data> &vData) {
 	/*********************************************
 		Gets data from a specific delimited .tbl file and fills a dj::Data struct instance that is pushed
 		into the vData vector
@@ -32,56 +36,63 @@ void parseTable(std::vector<dj::Data> &vData) {
 
 		@exception None.
 	*********************************************/
+	bool parsed = false;
 	const char delim = '|';
 	std::ifstream inFile;
 	inFile.open(PARTTABLE);
-
-	std::string line;
-
-	while (std::getline(inFile, line)) {
-		std::string tline;
-		dj::Data tData;
-
-		std::stringstream ss(line);
-
-		//key
-		std::getline(ss, tline, delim);
-		tData.key = std::stoi(tline);
-
-		//name
-		std::getline(ss, tline, delim);
-		tData.name = tline;
-
-		//manufacturer
-		std::getline(ss, tline, delim);
-		tData.mfgr = tline;
-
-		//brand
-		std::getline(ss, tline, delim);
-		tData.brand = tline;
-
-		//type
-		std::getline(ss, tline, delim);
-		tData.type = tline;
-
-		//size
-		std::getline(ss, tline, delim);
-		tData.size = std::stoi(tline);
-
-		//container
-		std::getline(ss, tline, delim);
-		tData.container = tline;
-
-		//price
-		std::getline(ss, tline, delim);
-		tData.price = std::stof(tline);
-
-		//comment
-		std::getline(ss, tline, delim);
-		tData.comment = tline;
-
-		vData.push_back(tData);
+	if (!inFile.is_open()) {
+		std::cerr << "Could not open " << PARTTABLE << "\n";
 	}
+	else {
+		std::string line;
+
+		while (std::getline(inFile, line)) {
+			std::string tline;
+			dj::Data tData;
+
+			std::stringstream ss(line);
+
+			//key
+			std::getline(ss, tline, delim);
+			tData.key = std::stoi(tline);
+
+			//name
+			std::getline(ss, tline, delim);
+			tData.name = tline;
+
+			//manufacturer
+			std::getline(ss, tline, delim);
+			tData.mfgr = tline;
+
+			//brand
+			std::getline(ss, tline, delim);
+			tData.brand = tline;
+
+			//type
+			std::getline(ss, tline, delim);
+			tData.type = tline;
+
+			//size
+			std::getline(ss, tline, delim);
+			tData.size = std::stoi(tline);
+
+			//container
+			std::getline(ss, tline, delim);
+			tData.container = tline;
+
+			//price
+			std::getline(ss, tline, delim);
+			tData.price = std::stof(tline);
+
+			//comment
+			std::getline(ss, tline, delim);
+			tData.comment = tline;
+
+			vData.push_back(tData);
+		}
+		parsed = true;
+	}
+	return parsed;
 }
 
 void saveDatabase(std::vector<dj::Data>& d) {
@@ -118,7 +129,7 @@ void logCheck() {
 		log << 0;
 	}
 }
-void writeLog() {
+void writeLog(int i) {
 	/*********************************************
 		Writes 1 to log.txt
 
@@ -129,7 +140,7 @@ void writeLog() {
 		@exception None.
 	*********************************************/
 	std::ofstream log(LOG);
-	log << 1;
+	log << i;
 }
 
 bool readLog() {
